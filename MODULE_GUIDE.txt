@@ -1,0 +1,52 @@
+================================================================
+FALL DETECTION & ELDERLY CARE SYSTEM - MODULE DOCUMENTATION
+================================================================
+
+This project is designed to monitor elderly people in real-time. 
+It uses Artificial Intelligence (AI) to detect falls and body 
+positions through a standard webcam.
+
+PROJECT STRUCTURE (FILES & THEIR PURPOSE):
+------------------------------------------
+
+1. app.py (The "Brain"):
+   - Purpose: This is the main script that you run.
+   - What it does: It starts a Flask web server, opens your camera, 
+     runs the AI logic frame-by-frame, and sends the live video 
+     to your web dashboard.
+   - Why we do this: To provide a professional user interface (Dashboard) 
+     that can be accessed from any device on the network.
+
+2. utils.py (The "Logic"):
+   - Purpose: Decision-making module.
+   - What it does: It takes raw coordinate points from the AI and 
+     uses math (Geometry) to decide if a person is "Sitting", 
+     "Standing", or "Falling".
+   - Why we do this: To turn raw distance data into meaningful human 
+     activities that family members or caregivers can understand.
+
+3. pose_detector.py (The "Eyes"):
+   - Purpose: Computer Vision module.
+   - What it does: Uses Google's "MediaPipe" AI model to identify 
+     human body parts. It places 33 virtual "joints" on the body 
+     in milliseconds.
+   - Why we do this: Without this, the computer wouldn't know 
+     where the person's head, knees, or shoulders are in the video.
+
+4. dashboard/templates/index.html (The "Screen"):
+   - Purpose: User Interface (UI).
+   - What it does: Displays the video feed, the system status logs, 
+     and the Start/Stop buttons.
+   - Why we do this: To provide a modern, easy-to-use interface 
+     for a caregiver/hospital.
+
+5. requirements.txt:
+   - Purpose: Dependency list.
+   - What it does: Lists the libraries (Flask, MediaPipe, OpenCV) 
+     needed to make the code work.
+   - Why we do this: So you can easily install all the "technologies" 
+     on any new computer with one command (pip install -r requirements.txt).
+
+================================================================
+Developed for: B.Tech Project - Fall Detection Skeleton
+================================================================
