@@ -1,38 +1,43 @@
-# Fall Detection and Activity Recognition
+# Fall Detection System
 
-This project implements a fall detection and activity recognition system using human skeleton features, as described in the paper "Fall Detection and Activity Recognition Using Human Skeleton Features" (2021).
+This project is a real-time posture monitoring and fall detection system developed using Python, OpenCV, and MediaPipe. The system detects human posture from a live camera feed and classifies falls using trained machine learning models.
 
-## Architecture
+## Features
 
-1.  **Pose Estimation**: Uses MediaPipe Pose to extract landmarks.
-2.  **Feature Extraction**: Maps 33 MediaPipe landmarks to the 17 standard COCO keypoints (x, y, confidence) used in the paper.
-3.  **Classification**: Implements Random Forest (RF), Support Vector Machine (SVM), Multilayer Perceptron (MLP), and K-Nearest Neighbors (KNN).
+- Real-time human pose detection
+- Fall detection using machine learning models
+- Live camera monitoring
+- Multiple trained models (KNN, SVM, Random Forest, MLP)
+- Alert generation for detected falls
 
-## Getting Started
+## Technologies Used
 
-### Prerequisites
-- **Python 3.8-3.11** (Required for MediaPipe)
-- Webcam
-- (Note: Current system Python 3.7.4 is too old for the Pose Detector module)
-```bash
+- Python
+- OpenCV
+- MediaPipe
+- Machine Learning (Scikit-learn)
+- NumPy
+- Pandas
+
+## How to Run
+
+Install dependencies:
+
 pip install -r requirements.txt
-```
 
-### Usage
-1.  **Train Mock Models**: Generate a baseline model (since the full UP-FALL dataset is proprietary/separate).
-    ```bash
-    python train_mock.py
-    ```
-2.  **Run Real-time Detection**:
-    ```bash
-    python main.py
-    ```
+Run the project:
 
-## Activity Labels
-- Falling (Forward, Backwards, Sideways, Sitting)
-- Walking
-- Standing
-- Sitting
-- Laying
-- Picking up object
-- Jumping
+python main.py
+
+## Project Structure
+
+app.py
+classifier.py
+main.py
+pose_detector.py
+test_camera.py
+requirements.txt
+fall_model_KNN.pkl
+fall_model_SVM.pkl
+fall_model_RF.pkl
+fall_model_MLP.pkl
